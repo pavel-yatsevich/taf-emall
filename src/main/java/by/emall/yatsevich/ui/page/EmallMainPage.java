@@ -9,8 +9,9 @@ public class EmallMainPage extends AbstractPage {
         super();
     }
 
-    public EmallMainPage openPage() {
+    @Override
+    public CookiesTitlePage openPage() {
         driver.navigate().to(BASE_URL);
-        return this;
+        return new CookiesTitlePage();
     }
 }

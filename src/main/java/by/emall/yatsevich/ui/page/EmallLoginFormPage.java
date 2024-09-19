@@ -15,10 +15,7 @@ public class EmallLoginFormPage extends AbstractPage {
         return new EmallLoginFormByPasswordPage();
     }
 
-    public EmallLoginFormPage() {
-        super();
-    }
-
+    @Override
     public EmallLoginFormPage openPage() {
         driver.navigate().to(LOGIN_PAGE_URL);
         return this;
