@@ -1,4 +1,4 @@
-package by.emall.yatsevich.ui.page.constants;
+package by.emall.yatsevich.ui.constants;
 
 public abstract class ErrorMessageConstants {
 
