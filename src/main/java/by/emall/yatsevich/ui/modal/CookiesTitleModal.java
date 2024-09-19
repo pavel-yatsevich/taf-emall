@@ -11,6 +11,6 @@ public class CookiesTitleModal extends AbstractModal {
 
     public EmallMainPage clickTheButtonAcceptCookies() {
 
-        return new EmallMainPage(driver);
+        return new EmallMainPage();
     }
 }
