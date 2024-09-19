@@ -4,11 +4,11 @@ import by.emall.yatsevich.ui.page.xpath.CookieTitleXPath;
 import by.emall.yatsevich.ui.utils.Waiters;
 import org.openqa.selenium.By;
 
-public class CookieTitlePage extends AbstractPage {
+public class CookieTitlePage extends AbstractPage implements CookieTitleXPath {
 
     private static final String BASE_URL = "https://emall.by/";
 
-    private final By buttonAcceptCookiesBy = By.xpath(CookieTitleXPath.BUTTON_ACCEPT_COOKIES_XPATH);
+    private final By buttonAcceptCookiesBy = By.xpath(BUTTON_ACCEPT_COOKIES_XPATH);
 
     public EmallMainPage clickTheButtonAcceptCookies() {
         Waiters.getElementWithWaiter(driver, WAIT_TIME_DURATION_SEC, buttonAcceptCookiesBy).click();
