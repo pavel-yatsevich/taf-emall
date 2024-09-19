@@ -10,4 +10,6 @@ public abstract class AbstractPage {
     public AbstractPage(){
         this.driver = ChromeDriverSingleton.getDriver();
     }
+
+    public abstract AbstractPage openPage();
 }
