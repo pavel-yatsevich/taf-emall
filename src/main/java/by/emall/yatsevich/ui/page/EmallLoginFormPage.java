@@ -1,7 +1,5 @@
 package by.emall.yatsevich.ui.page;
 
-import org.openqa.selenium.WebDriver;
-
 public class EmallLoginFormPage extends AbstractPage {
 
     private static final String LOGIN_PAGE_URL = "https://emall.by/login";
@@ -12,7 +10,6 @@ public class EmallLoginFormPage extends AbstractPage {
         super();
     }
 
-    @Override
     public EmallLoginFormPage openPage() {
         driver.navigate().to(LOGIN_PAGE_URL);
         return this;

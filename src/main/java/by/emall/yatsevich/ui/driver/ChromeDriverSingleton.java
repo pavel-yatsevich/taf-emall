@@ -3,11 +3,11 @@ package by.emall.yatsevich.ui.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverSingleton {
+public class ChromeDriverSingleton {
 
     private static WebDriver driver;
 
-    private DriverSingleton() {
+    private ChromeDriverSingleton() {
     }
 
     public static WebDriver getDriver() {
