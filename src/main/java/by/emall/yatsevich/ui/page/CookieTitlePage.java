@@ -2,6 +2,7 @@ package by.emall.yatsevich.ui.page;
 
 import by.emall.yatsevich.ui.utils.Waiters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 public class CookieTitlePage extends AbstractPage {
 
@@ -9,9 +10,13 @@ public class CookieTitlePage extends AbstractPage {
 
     private final By buttonAcceptCookiesBy = By.xpath("//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW cookies_button__qWM6Y']");
 
+    public CookieTitlePage() {
+        PageFactory.initElements(this.driver,this);
+    }
 
     public EmallMainPage clickTheButtonAcceptCookies() {
-        Waiters.getElementWithAvailabilityExpectation(driver, buttonAcceptCookiesBy).click();
+        Waiters.getElementWithAvailabilityExpectation(driver, buttonAcceptCookiesBy)
+                .click();
         return new EmallMainPage();
     }
 

@@ -1,12 +1,23 @@
 package by.emall.yatsevich.ui.page;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 public class EmallMainPage extends AbstractPage {
 
     private static final String BASE_URL = "https://emall.by/";
-    public static final String EMALL_MAIN_PAGE_LOGIN_FORM_BUTTON_XPATH = "//button[@class='touchable_button__GJNQZ actions_action__button__OiPrx']";
+
+    @FindBy(xpath = "//button[@class='touchable_button__GJNQZ actions_action__button__OiPrx']")
+    private WebElement loginFormButtonElement;
 
     public EmallMainPage() {
-        super();
+        PageFactory.initElements(this.driver,this);
+    }
+
+    public EmallLoginFormPage clickToLoginFormButton() {
+        loginFormButtonElement.click();
+        return new EmallLoginFormPage();
     }
 
     @Override
