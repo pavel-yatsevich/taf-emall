@@ -1,12 +1,10 @@
 package by.emall.yatsevich.ui.page;
 
-import by.emall.yatsevich.ui.page.xpath.CookieTitleXPath;
+import by.emall.yatsevich.ui.page.constants.CookieTitleConstants;
 import by.emall.yatsevich.ui.utils.Waiters;
 import org.openqa.selenium.By;
 
-public class CookieTitlePage extends AbstractPage implements CookieTitleXPath {
-
-    private static final String BASE_URL = "https://emall.by/";
+public class CookieTitlePage extends AbstractPage implements CookieTitleConstants {
 
     private final By buttonAcceptCookiesBy = By.xpath(BUTTON_ACCEPT_COOKIES_XPATH);
 
