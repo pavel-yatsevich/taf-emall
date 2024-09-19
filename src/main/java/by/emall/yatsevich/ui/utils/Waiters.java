@@ -10,7 +10,12 @@ import java.time.Duration;
 
 public class Waiters {
 
-    public static WebElement getElementWithWaiter(WebDriver driver, int waitTimeSec, By by) {
-        return new WebDriverWait(driver, Duration.ofSeconds(waitTimeSec)).until(ExpectedConditions.presenceOfElementLocated(by));
+    private static final int WAIT_TIMEOUT_SECONDS = 10;
+
+    public static WebElement getElementWithAvailabilityExpectation(WebDriver driver, By by) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+    public static WebElement getElementToBeClickable(WebDriver driver, By by) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.elementToBeClickable(by));
     }
 }
