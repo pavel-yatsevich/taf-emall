@@ -9,6 +9,9 @@ public class PhoneNumbersBuilder {
     private static final int[] OPERATORS_CODES = {25, 29, 33, 44};
     private final Random random = new Random();
 
+    public PhoneNumbersBuilder() {
+    }
+
     public PhoneNumbersBuilder addCountryCode() {
         phoneBuilder.append(COUNTRY_CODE);
         return this;
