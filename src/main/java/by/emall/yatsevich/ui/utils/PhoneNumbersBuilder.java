@@ -5,8 +5,8 @@ import java.util.Random;
 public class PhoneNumbersBuilder {
 
     private final StringBuilder phoneBuilder = new StringBuilder();
-    private final String COUNTRY_CODE = "+375";
-    private final int[] OPERATORS_CODES = {25, 29, 33, 44};
+    private static final String COUNTRY_CODE = "+375";
+    private static final int[] OPERATORS_CODES = {25, 29, 33, 44};
     private final Random random = new Random();
 
     public PhoneNumbersBuilder addCountryCode() {
