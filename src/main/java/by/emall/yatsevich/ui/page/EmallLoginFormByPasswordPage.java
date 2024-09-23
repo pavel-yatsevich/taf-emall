@@ -41,7 +41,6 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
     }
 
     public EmallLoginFormByPasswordPage clickLoginButton() {
-//        loginFormSubmitButtonElement.click();
         waitWebElement(driver).until(
                 d -> {
                     loginFormSubmitButtonElement.click();
