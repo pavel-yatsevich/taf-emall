@@ -1,4 +1,4 @@
 package by.emall.yatsevich;
 
-public class SiteTest {
+public class BaseTest {
 }
