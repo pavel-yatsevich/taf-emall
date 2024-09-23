@@ -1,9 +1,6 @@
 package by.emall.yatsevich.ui.utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,12 +9,10 @@ import java.time.Duration;
 public class Waiters {
 
     private static final int WAIT_TIMEOUT_SECONDS = 10;
+    private static final int POLLING_INTERVAL_MILLIS = 300;
 
-    public static WebElement getElementWithAvailabilityExpectation(WebDriver driver, By by) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-
-    public static WebElement getElementToBeClickable(WebDriver driver, By by) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.elementToBeClickable(by));
+    public static Wait<WebDriver> waitWebElement(WebDriver driver) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .pollingEvery(Duration.ofMillis(POLLING_INTERVAL_MILLIS));
     }
 }

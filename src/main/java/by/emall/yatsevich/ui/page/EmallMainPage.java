@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
+
 public class EmallMainPage extends AbstractPage {
 
     private static final String BASE_URL = "https://emall.by/";
@@ -12,11 +14,15 @@ public class EmallMainPage extends AbstractPage {
     private WebElement loginFormButtonElement;
 
     public EmallMainPage() {
-        PageFactory.initElements(this.driver,this);
+        PageFactory.initElements(this.driver, this);
     }
 
     public EmallLoginFormPage clickToLoginFormButton() {
-        loginFormButtonElement.click();
+        waitWebElement(driver).until(
+                        d -> {
+                            loginFormButtonElement.click();
+                            return true;
+                        });
         return new EmallLoginFormPage();
     }
 

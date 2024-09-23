@@ -1,22 +1,28 @@
 package by.emall.yatsevich.ui.page;
 
-import by.emall.yatsevich.ui.utils.Waiters;
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
 
 public class CookieTitlePage extends AbstractPage {
 
-    private static final  String BASE_URL = "https://emall.by/";
+    private static final String BASE_URL = "https://emall.by/";
 
-    private final By buttonAcceptCookiesBy = By.xpath("//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW cookies_button__qWM6Y']");
+    @FindBy(xpath = "//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW cookies_button__qWM6Y']")
+    private WebElement buttonAcceptCookiesElement;
 
     public CookieTitlePage() {
-        PageFactory.initElements(this.driver,this);
+        PageFactory.initElements(this.driver, this);
     }
 
     public EmallMainPage clickTheButtonAcceptCookies() {
-        Waiters.getElementWithAvailabilityExpectation(driver, buttonAcceptCookiesBy)
-                .click();
+        waitWebElement(driver).until(
+                d -> {
+                    buttonAcceptCookiesElement.click();
+                    return true;
+                });
         return new EmallMainPage();
     }
 
