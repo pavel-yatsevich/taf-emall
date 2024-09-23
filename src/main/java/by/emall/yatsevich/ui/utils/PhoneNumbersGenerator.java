@@ -56,10 +56,10 @@ public class PhoneNumbersGenerator {
     }
 
     private static int getCorrectPhoneNumber() {
-        return random.nextInt(100_00_00,1_000_00_00);
+        return random.nextInt(100_00_00, 1_000_00_00);
     }
 
     private static String getIncorrectPhoneNumber() {
-        return "0" + String.valueOf(random.nextInt(10_00_00,100_00_00));
+        return "0" + String.valueOf(random.nextInt(10_00_00, 100_00_00));
     }
 }
