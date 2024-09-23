@@ -9,7 +9,6 @@ import static by.emall.yatsevich.ui.utils.PhoneNumbersGenerator.*;
 
 public class LoginFormBySMSTest extends BaseTest {
 
-    private String actualErrorMessage;
 
     @Test
     public void testEmptyPhoneNumberField() {
@@ -33,7 +32,7 @@ public class LoginFormBySMSTest extends BaseTest {
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_TEXT, actualErrorMessage);
+        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class LoginFormBySMSTest extends BaseTest {
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_TEXT, actualErrorMessage);
+        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 
     @Test
@@ -59,6 +58,6 @@ public class LoginFormBySMSTest extends BaseTest {
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_TEXT, actualErrorMessage);
+        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 }
