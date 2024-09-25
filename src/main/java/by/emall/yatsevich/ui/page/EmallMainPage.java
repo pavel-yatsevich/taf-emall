@@ -1,10 +1,9 @@
 package by.emall.yatsevich.ui.page;
 
+import by.emall.yatsevich.ui.driver.ChromeDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
 
 public class EmallMainPage extends AbstractPage {
 
@@ -17,12 +16,8 @@ public class EmallMainPage extends AbstractPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public EmallLoginFormPage clickToLoginFormButton() {
-        waitWebElement(driver).until(
-                        d -> {
-                            loginFormButtonElement.click();
-                            return true;
-                        });
+    public EmallLoginFormPage clickLoginFormButton() {
+        loginFormButtonElement.click();
         return new EmallLoginFormPage();
     }
 

@@ -1,11 +1,12 @@
 package by.emall.yatsevich;
 
-import by.emall.yatsevich.ui.constants.ErrorMessageConstants;
 import by.emall.yatsevich.ui.page.EmallMainPage;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static by.emall.yatsevich.ui.utils.PhoneNumbersGenerator.*;
+import static by.emall.yatsevich.ui.constants.ErrorMessageConstants.ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT;
+import static by.emall.yatsevich.ui.constants.ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT;
+import static by.emall.yatsevich.components.utils.PhoneNumbersGenerator.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginFormBySMSTest extends BaseTest {
 
@@ -14,50 +15,50 @@ public class LoginFormBySMSTest extends BaseTest {
     public void testEmptyPhoneNumberField() {
         actualErrorMessage = new EmallMainPage()
                 .openPage()
-                .clickTheButtonAcceptCookies()
-                .clickToLoginFormButton()
+                .clickAcceptCookiesButton()
+                .clickLoginFormButton()
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_EMPTY_FIELD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT, actualErrorMessage);
     }
 
     @Test
-    public void testIncorrectPhoneNumberInField_ValidOperatorsCod_InvalidPhone() {
+    public void testIncorrectPhoneNumberInField_ValidOperatorsCode_InvalidPhone() {
         actualErrorMessage = new EmallMainPage()
                 .openPage()
-                .clickTheButtonAcceptCookies()
-                .clickToLoginFormButton()
+                .clickAcceptCookiesButton()
+                .clickLoginFormButton()
                 .enterPhoneNumber(getIncorrectNumberValidOperatorCodeInvalidNumber())
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 
     @Test
-    public void testIncorrectPhoneNumberInField_InvalidOperatorsCod_ValidPhone() {
+    public void testIncorrectPhoneNumberInField_InvalidOperatorsCode_ValidPhone() {
         actualErrorMessage = new EmallMainPage()
                 .openPage()
-                .clickTheButtonAcceptCookies()
-                .clickToLoginFormButton()
+                .clickAcceptCookiesButton()
+                .clickLoginFormButton()
                 .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeValidNumber())
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 
     @Test
-    public void testIncorrectPhoneNumberInField_InvalidOperatorsCod_InvalidPhone() {
+    public void testIncorrectPhoneNumberInField_InvalidOperatorsCode_InvalidPhone() {
         actualErrorMessage = new EmallMainPage()
                 .openPage()
-                .clickTheButtonAcceptCookies()
-                .clickToLoginFormButton()
+                .clickAcceptCookiesButton()
+                .clickLoginFormButton()
                 .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeInvalidNumber())
                 .clickButtonGetCode()
                 .getErrorMessage();
 
-        Assertions.assertEquals(ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
     }
 }

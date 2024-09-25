@@ -2,7 +2,7 @@ package by.emall.yatsevich.ui.constants;
 
 public abstract class ErrorMessageConstants {
 
-    public static final String ERROR_MESSAGE_EMPTY_FIELD_TEXT = "Поле \"Номер телефона\" обязательно для заполнения.";
+    public static final String ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT = "Поле \"Номер телефона\" обязательно для заполнения.";
     public static final String ERROR_MESSAGE_EMPTY_ALL_FIELDS_TEXT = "Поле \"Номер телефона\" обязательно для заполнения.\n" +
             "Поле \"Пароль\" обязательно для заполнения.";
     public static final String ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT = "Значение поля \"Номер телефона\" должно начинаться с +375 затем код (25|29|33|44) и далее 7 цифр (первая из которых не 0)\n" +

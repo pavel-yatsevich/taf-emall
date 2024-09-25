@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static by.emall.yatsevich.ui.utils.Waiters.*;
+import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.*;
 
 public class EmallLoginFormPage extends AbstractPage {
 
@@ -24,34 +24,21 @@ public class EmallLoginFormPage extends AbstractPage {
     }
 
     public EmallLoginFormPage clickButtonGetCode() {
-        waitWebElement(driver).until(
-                d -> {
-                    loginFormButtonGetCodeElement.click();
-                    return true;
-                });
+        clickToWebElementWithWaiter(loginFormButtonGetCodeElement);
         return this;
     }
 
     public EmallLoginFormPage enterPhoneNumber(String phoneNumber) {
-        waitWebElement(driver).until(
-                d -> {
-                    loginFormPhoneNumFieldElement.sendKeys(phoneNumber);
-                    return true;
-                });
+        sendKeysToElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
         return this;
     }
 
     public String getErrorMessage() {
-        waitWebElement(driver).until(d -> loginFormErrorMessageElement.isDisplayed());
-        return loginFormErrorMessageElement.getText();
+        return getTextFromWebElementWithWaiter(loginFormErrorMessageElement);
     }
 
-    public EmallLoginFormByPasswordPage clickButtonEnterByPassword() {
-        waitWebElement(driver).until(
-                d -> {
-                    loginFormButtonEnterByPasswordElement.click();
-                    return true;
-                });
+    public EmallLoginFormByPasswordPage clickEnterByPasswordButton() {
+        clickToWebElementWithWaiter(loginFormButtonEnterByPasswordElement);
         return new EmallLoginFormByPasswordPage();
     }
 

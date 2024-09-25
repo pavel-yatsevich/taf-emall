@@ -1,10 +1,11 @@
 package by.emall.yatsevich.ui.page;
 
+import by.emall.yatsevich.components.utils.Waiters;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
+import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.*;
 
 public class EmallLoginFormByPasswordPage extends AbstractPage {
 
@@ -25,33 +26,29 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public EmallLoginFormByPasswordPage enterPhoneNumber(Integer phoneNumber) {
-        loginFormPhoneNumFieldElement.sendKeys(phoneNumber.toString());
+    public EmallLoginFormByPasswordPage enterPhoneNumber(String phoneNumber) {
+        Waiters.getGlobalWait();
+        sendKeysToElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
         return this;
     }
 
-    public EmallLoginFormByPasswordPage clickButtonSeePassword() {
-        loginFormSeePasswordButtonElement.click();
+    public EmallLoginFormByPasswordPage clickSeePasswordButton() {
+        clickToWebElementWithWaiter(loginFormSeePasswordButtonElement);
         return this;
     }
 
     public EmallLoginFormByPasswordPage enterPassword(String password) {
-        loginFormPasswordFieldElement.sendKeys(password);
+        sendKeysToElementWithWaiter(loginFormPasswordFieldElement, password);
         return this;
     }
 
     public EmallLoginFormByPasswordPage clickLoginButton() {
-        waitWebElement(driver).until(
-                d -> {
-                    loginFormSubmitButtonElement.click();
-                    return true;
-                });
+        clickToWebElementWithWaiter(loginFormSubmitButtonElement);
         return this;
     }
 
     public String getErrorMessage() {
-        waitWebElement(driver).until(d -> loginFormErrorMessageElement.isDisplayed());
-        return loginFormErrorMessageElement.getText();
+        return getTextFromWebElementWithWaiter(loginFormErrorMessageElement);
     }
 
     @Override
