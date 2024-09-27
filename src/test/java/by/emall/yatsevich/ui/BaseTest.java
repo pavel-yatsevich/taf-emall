@@ -1,4 +1,4 @@
-package by.emall.yatsevich;
+package by.emall.yatsevich.ui;
 
 import by.emall.yatsevich.ui.driver.ChromeDriverSingleton;
 import org.junit.jupiter.api.AfterEach;
