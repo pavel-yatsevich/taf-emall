@@ -1,4 +1,4 @@
-package by.emall.yatsevich.components.utils;
+package by.emall.yatsevich.components.utils.generators;
 
 import java.util.Random;
 

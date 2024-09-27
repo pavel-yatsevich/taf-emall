@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static by.emall.yatsevich.components.utils.Waiters.waitWebElement;
+import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
 
 public class ChromeDriverSingleton {
 

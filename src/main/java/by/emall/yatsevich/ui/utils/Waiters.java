@@ -1,4 +1,4 @@
-package by.emall.yatsevich.components.utils;
+package by.emall.yatsevich.ui.utils;
 
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
