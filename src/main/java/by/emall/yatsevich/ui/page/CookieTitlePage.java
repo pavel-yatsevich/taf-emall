@@ -1,9 +1,10 @@
 package by.emall.yatsevich.ui.page;
 
-import by.emall.yatsevich.ui.driver.ChromeDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.clickToWebElementWithWaiter;
 
 public class CookieTitlePage extends AbstractPage {
 
@@ -13,11 +14,12 @@ public class CookieTitlePage extends AbstractPage {
     private WebElement buttonAcceptCookiesElement;
 
     public CookieTitlePage() {
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
+
     public EmallMainPage clickAcceptCookiesButton() {
-        ChromeDriverSingleton.clickToWebElementWithWaiter(buttonAcceptCookiesElement);
+        clickToWebElementWithWaiter(buttonAcceptCookiesElement);
         return new EmallMainPage();
     }
 

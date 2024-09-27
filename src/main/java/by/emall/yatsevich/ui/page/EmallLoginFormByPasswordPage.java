@@ -1,6 +1,5 @@
 package by.emall.yatsevich.ui.page;
 
-import by.emall.yatsevich.components.utils.Waiters;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,11 +22,10 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
     private WebElement loginFormErrorMessageElement;
 
     public EmallLoginFormByPasswordPage() {
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     public EmallLoginFormByPasswordPage enterPhoneNumber(String phoneNumber) {
-        Waiters.getGlobalWait();
         sendKeysToElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
         return this;
     }
