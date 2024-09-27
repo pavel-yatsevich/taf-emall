@@ -13,14 +13,14 @@ public class EmallLoginFormPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='tel']")
     private WebElement loginFormPhoneNumFieldElement;
     @FindBy(xpath = "//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW btn_btn_type_secondary___G_V0 login_button__zjbHA login_enter_button__WJQjN']")
-    private WebElement loginFormButtonEnterByPasswordElement;
+    private WebElement loginFormEnterByPasswordButtonElement;
     @FindBy(xpath = "//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW login_button__zjbHA']")
     private WebElement loginFormButtonGetCodeElement;
     @FindBy(xpath = "//div[@class='new-input-phone_message__H_yAc']")
     private WebElement loginFormErrorMessageElement;
 
     public EmallLoginFormPage() {
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     public EmallLoginFormPage clickButtonGetCode() {
@@ -38,7 +38,7 @@ public class EmallLoginFormPage extends AbstractPage {
     }
 
     public EmallLoginFormByPasswordPage clickEnterByPasswordButton() {
-        clickToWebElementWithWaiter(loginFormButtonEnterByPasswordElement);
+        clickToWebElementWithWaiter(loginFormEnterByPasswordButtonElement);
         return new EmallLoginFormByPasswordPage();
     }
 

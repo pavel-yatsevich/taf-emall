@@ -34,16 +34,16 @@ public class ChromeDriverSingleton {
                 });
     }
 
-    public static void clickToWebElementWithWaiter(WebElement webElement) {
+    public static void clickToWebElementWithWaiter(WebElement element) {
         waitWebElement(driver).until(
                 d -> {
-                    webElement.click();
+                    element.click();
                     return true;
                 });
     }
 
     public static String getTextFromWebElementWithWaiter(WebElement webElement) {
-        waitWebElement(driver).until(d -> webElement.isDisplayed());
+        waitWebElement(driver).until(d-> webElement.isDisplayed());
         return webElement.getText();
     }
 }
