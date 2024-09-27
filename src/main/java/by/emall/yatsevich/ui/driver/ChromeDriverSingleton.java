@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static by.emall.yatsevich.ui.utils.Waiters.waitWebElement;
+import static by.emall.yatsevich.ui.utils.Waiters.*;
 
 public class ChromeDriverSingleton {
 
@@ -27,7 +27,7 @@ public class ChromeDriverSingleton {
     }
 
     public static void sendKeysToElementWithWaiter(WebElement webElement, String keys) {
-        waitWebElement(driver).until(
+        waitWebElementToBeSent(driver).until(
                 d -> {
                     webElement.sendKeys(keys);
                     return true;
@@ -35,7 +35,7 @@ public class ChromeDriverSingleton {
     }
 
     public static void clickToWebElementWithWaiter(WebElement element) {
-        waitWebElement(driver).until(
+        waitWebElementToBeClick(driver).until(
                 d -> {
                     element.click();
                     return true;
@@ -43,7 +43,7 @@ public class ChromeDriverSingleton {
     }
 
     public static String getTextFromWebElementWithWaiter(WebElement webElement) {
-        waitWebElement(driver).until(d-> webElement.isDisplayed());
+        waitWebElementToBeDisplay(driver).until(d-> webElement.isDisplayed());
         return webElement.getText();
     }
 }
