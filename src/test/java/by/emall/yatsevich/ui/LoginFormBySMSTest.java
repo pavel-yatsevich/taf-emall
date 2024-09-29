@@ -1,10 +1,10 @@
-package by.emall.yatsevich;
+package by.emall.yatsevich.ui;
 
 import by.emall.yatsevich.ui.page.EmallMainPage;
 import org.junit.jupiter.api.Test;
 
-import static by.emall.yatsevich.ui.constants.ErrorMessageConstants.ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT;
-import static by.emall.yatsevich.ui.constants.ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT;
+import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT;
+import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT;
 import static by.emall.yatsevich.components.utils.generators.PhoneNumbersGenerator.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
