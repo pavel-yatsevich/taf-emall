@@ -11,6 +11,7 @@ public interface PostRequestsPerformer {
     Headers getHeaders();
     Cookie getCookie();
     String getPath();
+    void setBaseURL();
 
     default Response preformPostRequestWithProperties() {
         return given()

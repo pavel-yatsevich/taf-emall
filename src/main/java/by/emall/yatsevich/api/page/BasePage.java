@@ -9,11 +9,12 @@ import io.restassured.response.Response;
 
 public class BasePage implements PostRequestsPerformer {
 
-    private static final String API_TOKEN_URL = "https://emall.by";
+    protected static final String BASE_API_URL = "https://api-preprod.emall.by/api/v1";
     private final Response configResponse;
 
     public BasePage() {
-        configResponse = performGetConfigurationRequest();
+        configResponse = RequestConfigurer.performGetConfigurationRequest();
+        RestAssured.baseURI = BASE_API_URL;
     }
 
     @Override
@@ -28,12 +29,12 @@ public class BasePage implements PostRequestsPerformer {
 
     @Override
     public String getPath() {
-        return API_TOKEN_URL;
+        return BASE_API_URL;
     }
 
-    private Response performGetConfigurationRequest() {
-        return RestAssured
-                .when()
-                .get(getPath());
+    @Override
+    public void setBaseURL() {
+
     }
+
 }
