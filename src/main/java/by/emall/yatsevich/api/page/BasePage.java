@@ -31,10 +31,4 @@ public class BasePage implements PostRequestsPerformer {
     public String getPath() {
         return BASE_API_URL;
     }
-
-    @Override
-    public void setBaseURL() {
-
-    }
-
 }
