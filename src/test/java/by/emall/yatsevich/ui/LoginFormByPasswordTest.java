@@ -3,7 +3,6 @@ package by.emall.yatsevich.ui;
 import org.junit.jupiter.api.Test;
 
 import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.*;
-import static by.emall.yatsevich.components.utils.generators.PasswordGenerator.generatePassword;
 import static by.emall.yatsevich.ui.steps.LoginFormByPasswordSteps.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,4 +1,4 @@
-package by.emall.yatsevich.api.utils.steps;
+package by.emall.yatsevich.api.steps;
 
 import by.emall.yatsevich.api.utils.RequestBodyBuilder;
 

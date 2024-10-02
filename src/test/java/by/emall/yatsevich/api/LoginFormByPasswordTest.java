@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static by.emall.yatsevich.api.utils.steps.LoginFormByPasswordSteps.*;
+import static by.emall.yatsevich.api.steps.LoginFormByPasswordSteps.*;
 import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.*;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;

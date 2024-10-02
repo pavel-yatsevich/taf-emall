@@ -7,8 +7,6 @@ public class BaseTest {
 
     protected String actual;
 
-    protected String actualErrorMessage;
-
     @AfterEach
     public void shutUp() {
         ChromeDriverSingleton.closeDriver();

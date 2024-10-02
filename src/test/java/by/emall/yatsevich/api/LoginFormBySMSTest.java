@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static by.emall.yatsevich.api.utils.steps.LoginFormBySMSSteps.*;
+import static by.emall.yatsevich.api.steps.LoginFormBySMSSteps.*;
 import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.*;
 import static org.apache.http.HttpStatus.*;
 
