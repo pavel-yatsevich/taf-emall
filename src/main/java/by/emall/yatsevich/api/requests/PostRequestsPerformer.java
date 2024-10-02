@@ -64,10 +64,4 @@ public interface PostRequestsPerformer {
                 .when()
                 .post(getPath());
     }
-
-    default Response performGetConfigurationRequest(String url) {
-        return RestAssured
-                .when()
-                .get(url);
-    }
 }
