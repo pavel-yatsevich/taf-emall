@@ -8,7 +8,7 @@ import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.*;
 
 public class EmallLoginFormPage extends AbstractPage {
 
-    private static final String LOGIN_PAGE_URL = "https://emall.by/login";
+    private static final String LOGIN_PAGE_URI = "login";
 
     @FindBy(xpath = "//input[@id='tel']")
     private WebElement loginFormPhoneNumFieldElement;
@@ -29,7 +29,7 @@ public class EmallLoginFormPage extends AbstractPage {
     }
 
     public EmallLoginFormPage enterPhoneNumber(String phoneNumber) {
-        sendKeysToElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
+        sendKeysToWebElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
         return this;
     }
 
@@ -44,7 +44,7 @@ public class EmallLoginFormPage extends AbstractPage {
 
     @Override
     public EmallLoginFormPage openPage() {
-        driver.navigate().to(LOGIN_PAGE_URL);
+        driver.navigate().to(BASE_URL + LOGIN_PAGE_URI);
         return this;
     }
 }

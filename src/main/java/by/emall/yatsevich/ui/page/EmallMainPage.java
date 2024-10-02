@@ -8,8 +8,6 @@ import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.clickToWebEleme
 
 public class EmallMainPage extends AbstractPage {
 
-    private static final String BASE_URL = "https://emall.by/";
-
     @FindBy(xpath = "//button[@class='touchable_button__GJNQZ actions_action__button__OiPrx']")
     private WebElement loginFormButtonElement;
 

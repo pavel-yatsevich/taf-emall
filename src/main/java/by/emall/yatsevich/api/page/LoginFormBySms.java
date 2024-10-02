@@ -1,6 +1,6 @@
 package by.emall.yatsevich.api.page;
 
-public class LoginFormBySmsPage extends BasePage {
+public class LoginFormBySms extends BasePage {
 
     private static final String LOGIN_BY_SMS_URI = "/auth/sms";
 

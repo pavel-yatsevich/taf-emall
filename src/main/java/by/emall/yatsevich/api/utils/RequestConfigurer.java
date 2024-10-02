@@ -9,14 +9,12 @@ import org.apache.http.HttpHeaders;
 
 public class RequestConfigurer {
 
-    private static final String API_TOKEN_URL = "https://emall.by";
-
     public static Headers getHeaders(Response response){
-        String apitoken = "apitoken";
+        String apiToken = "apitoken";
         String contentTypeValue = "application/json";
         return new Headers(
                 new Header(HttpHeaders.CONTENT_TYPE, contentTypeValue),
-                new Header(apitoken, getApiToken(response))
+                new Header(apiToken, getApiToken(response))
         );
     }
 
@@ -28,11 +26,5 @@ public class RequestConfigurer {
     public static Cookie getCookie(Response response) {
         String hgClientSecurity = "hg-client-security";
         return new Cookie.Builder(hgClientSecurity, response.getCookie(hgClientSecurity)).build();
-    }
-
-    public static Response performGetConfigurationRequest() {
-        return RestAssured
-                .when()
-                .get(API_TOKEN_URL);
     }
 }

@@ -8,15 +8,12 @@ import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.clickToWebEleme
 
 public class CookieTitlePage extends AbstractPage {
 
-    private static final String BASE_URL = "https://emall.by/";
-
     @FindBy(xpath = "//button[@class='btn_btn__QQYBS btn_btn_colour_black__V_2g5 btn_btn_size_medium__oY0HW cookies_button__qWM6Y']")
     private WebElement buttonAcceptCookiesElement;
 
     public CookieTitlePage() {
         PageFactory.initElements(driver, this);
     }
-
 
     public EmallMainPage clickAcceptCookiesButton() {
         clickToWebElementWithWaiter(buttonAcceptCookiesElement);

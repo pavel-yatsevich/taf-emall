@@ -12,7 +12,7 @@ public interface PostRequestsPerformer {
     Cookie getCookie();
     String getPath();
 
-    default Response preformPostRequestWithProperties() {
+    default Response performPostRequestWithProperties() {
         return given()
                 .headers(getHeaders())
                 .cookie(getCookie())
@@ -20,7 +20,7 @@ public interface PostRequestsPerformer {
                 .post(getPath());
     }
 
-    default Response preformPostRequestWithProperties(String body) {
+    default Response performPostRequestWithProperties(String body) {
         return given()
                 .headers(getHeaders())
                 .cookie(getCookie())
@@ -29,29 +29,14 @@ public interface PostRequestsPerformer {
                 .post(getPath());
     }
 
-    default Response preformPostRequestWithoutHeaders() {
+    default Response performPostRequestWithoutHeaders() {
         return given()
                 .cookie(getCookie())
                 .when()
                 .post(getPath());
     }
 
-    default Response preformPostRequestWithoutHeaders(String body) {
-        return given()
-                .cookie(getCookie())
-                .body(body)
-                .when()
-                .post(getPath());
-    }
-
-    default Response preformPostRequestWithoutCookie() {
-        return given()
-                .cookie(getCookie())
-                .when()
-                .post(getPath());
-    }
-
-    default Response preformPostRequestWithoutCookie(String body) {
+    default Response performPostRequestWithoutHeaders(String body) {
         return given()
                 .cookie(getCookie())
                 .body(body)
@@ -59,9 +44,30 @@ public interface PostRequestsPerformer {
                 .post(getPath());
     }
 
-    default Response preformEmptyPostRequest() {
+    default Response performPostRequestWithoutCookie() {
+        return given()
+                .headers(getHeaders())
+                .when()
+                .post(getPath());
+    }
+
+    default Response performPostRequestWithoutCookie(String body) {
+        return given()
+                .headers(getHeaders())
+                .body(body)
+                .when()
+                .post(getPath());
+    }
+
+    default Response performEmptyPostRequest() {
         return RestAssured
                 .when()
                 .post(getPath());
+    }
+
+    default Response performGetConfigurationRequest(String url) {
+        return RestAssured
+                .when()
+                .get(url);
     }
 }

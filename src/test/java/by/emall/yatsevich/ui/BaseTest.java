@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 
 public class BaseTest {
 
-    protected String actualErrorMessage;
+    protected String actual;
 
     @AfterEach
     public void shutUp() {

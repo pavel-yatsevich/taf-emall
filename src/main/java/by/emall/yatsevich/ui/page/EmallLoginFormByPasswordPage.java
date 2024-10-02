@@ -8,7 +8,7 @@ import static by.emall.yatsevich.ui.driver.ChromeDriverSingleton.*;
 
 public class EmallLoginFormByPasswordPage extends AbstractPage {
 
-    private static final String LOGIN_FORM_PAGE_BY_PASSWORD_URL = "https://emall.by/login/password";
+    private static final String LOGIN_FORM_PAGE_BY_PASSWORD_URI = "login/password";
 
     @FindBy(xpath = "//input[@class='new-input-phone_input__XWAH5']")
     private WebElement loginFormPhoneNumFieldElement;
@@ -26,7 +26,7 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
     }
 
     public EmallLoginFormByPasswordPage enterPhoneNumber(String phoneNumber) {
-        sendKeysToElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
+        sendKeysToWebElementWithWaiter(loginFormPhoneNumFieldElement, phoneNumber);
         return this;
     }
 
@@ -36,7 +36,7 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
     }
 
     public EmallLoginFormByPasswordPage enterPassword(String password) {
-        sendKeysToElementWithWaiter(loginFormPasswordFieldElement, password);
+        sendKeysToWebElementWithWaiter(loginFormPasswordFieldElement, password);
         return this;
     }
 
@@ -51,7 +51,7 @@ public class EmallLoginFormByPasswordPage extends AbstractPage {
 
     @Override
     public EmallLoginFormByPasswordPage openPage() {
-        driver.navigate().to(LOGIN_FORM_PAGE_BY_PASSWORD_URL);
+        driver.navigate().to(BASE_URL + LOGIN_FORM_PAGE_BY_PASSWORD_URI);
         return this;
     }
 }

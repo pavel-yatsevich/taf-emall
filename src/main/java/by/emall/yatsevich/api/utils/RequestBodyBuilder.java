@@ -1,29 +1,26 @@
 package by.emall.yatsevich.api.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RequestBodyBuilder {
 
-    private final StringBuilder builder;
-
-    public RequestBodyBuilder() {
-        builder = new StringBuilder();
-    }
+    private final Map<String, Object> body = new HashMap<>();
 
     public RequestBodyBuilder setPhoneNumber(String phoneNumber) {
-        String phoneWithCountryCode = "{\"phone\":\"+375";
-        builder.append(phoneWithCountryCode)
-                .append(phoneNumber);
+        String phoneField = "phone";
+        String phoneNumberWithCountryCode = "+375" + phoneNumber;
+        body.put(phoneField, phoneNumberWithCountryCode);
         return this;
     }
 
     public RequestBodyBuilder setPassword(String password) {
-        String andPassword = "\",\"password\":\"";
-        builder.append(andPassword)
-                .append(password);
+        String passwordField = "password";
+        body.put(passwordField,password);
         return this;
     }
 
     public String build() {
-        String endOfBody = "\"}";
-        return builder.append(endOfBody).toString();
+        return JsonConverter.getJsonFromMap(body);
     }
 }

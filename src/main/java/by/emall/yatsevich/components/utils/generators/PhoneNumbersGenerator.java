@@ -2,64 +2,60 @@ package by.emall.yatsevich.components.utils.generators;
 
 import java.util.Random;
 
+import static by.emall.yatsevich.components.utils.generators.enums.OperatorsCodes.*;
+
 public class PhoneNumbersGenerator {
-    private static final int[] OPERATOR_CODES = {25, 29, 33, 44};
-    private static final StringBuilder stringBuilder = new StringBuilder();
-    private static final Random random = new Random();
 
     public static String getValidNumberInternational() {
-        stringBuilder.setLength(0);
-        return stringBuilder.append("+375")
-                .append(getCorrectOperatorCode())
-                .append(getCorrectPhoneNumber())
-                .toString();
+        String countryCode = "+375";
+        return countryCode + getCorrectOperatorCode() + getCorrectPhoneNumber();
     }
 
     public static String getValidNumberWithOperatorCode() {
-        stringBuilder.setLength(0);
-        return stringBuilder.append(getCorrectOperatorCode())
-                .append(getCorrectPhoneNumber())
-                .toString();
+        return String.valueOf(getCorrectOperatorCode()) +
+                getCorrectPhoneNumber();
     }
 
     public static String getIncorrectNumberInvalidOperatorCodeValidNumber() {
-        stringBuilder.setLength(0);
-        return stringBuilder.append(getIncorrectOperatorCode())
-                .append(getCorrectPhoneNumber())
-                .toString();
+        return String.valueOf(getIncorrectOperatorCode()) +
+                getCorrectPhoneNumber();
     }
 
     public static String getIncorrectNumberValidOperatorCodeInvalidNumber() {
-        stringBuilder.setLength(0);
-        return stringBuilder.append(getCorrectOperatorCode())
-                .append(getIncorrectPhoneNumber())
-                .toString();
+        return getCorrectOperatorCode() +
+                getIncorrectPhoneNumber();
     }
 
     public static String getIncorrectNumberInvalidOperatorCodeInvalidNumber() {
-        stringBuilder.setLength(0);
-        return stringBuilder.append(getIncorrectOperatorCode())
-                .append(getIncorrectPhoneNumber())
-                .toString();
+        return getIncorrectOperatorCode() +
+                getIncorrectPhoneNumber();
     }
 
     private static int getIncorrectOperatorCode() {
         int code;
+        int minSize = 10;
+        int maxSize = 100;
         do {
-            code = random.nextInt(10, 100);
-        } while (code == 25 || code == 29 || code == 33 || code == 44);
+            code = new Random().nextInt(minSize, maxSize);
+        } while (code == LIFE.getCode() || code == MTS_1.getCode()
+                || code == MTS_2.getCode() || code == A1.getCode());
         return code;
     }
 
     private static int getCorrectOperatorCode() {
-        return OPERATOR_CODES[random.nextInt(OPERATOR_CODES.length)];
+        return getAllCodes()[new Random().nextInt(getAllCodes().length)];
     }
 
     private static int getCorrectPhoneNumber() {
-        return random.nextInt(100_00_00, 1_000_00_00);
+        int correctPhoneNumberMinSize = 100_00_00;
+        int correctPhoneNumberMaxSize = 1_000_00_00;
+        return new Random().nextInt(correctPhoneNumberMinSize, correctPhoneNumberMaxSize);
     }
 
     private static String getIncorrectPhoneNumber() {
-        return "0" + String.valueOf(random.nextInt(10_00_00, 100_00_00));
+        String invalidStartNumber = "0";
+        int incorrectPhoneNumberMinSize = 10_00_00;
+        int incorrectPhoneNumberMaxSize = 100_00_00;
+        return invalidStartNumber + new Random().nextInt(incorrectPhoneNumberMinSize, incorrectPhoneNumberMaxSize);
     }
 }
