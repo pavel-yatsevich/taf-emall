@@ -13,7 +13,7 @@ public class Waiters {
 
     private static final int WAIT_TIMEOUT_SECONDS = 15;
 
-    public static Wait<WebDriver> waitWebElementToBeClick(WebDriver driver) {
+    public static Wait<WebDriver> waitForWebElementToClick(WebDriver driver) {
         return new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .pollingEvery(Duration.ofMillis(300))

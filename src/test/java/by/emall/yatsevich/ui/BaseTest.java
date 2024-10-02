@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 
 public class BaseTest {
 
+    protected String actual;
+
     protected String actualErrorMessage;
 
     @AfterEach

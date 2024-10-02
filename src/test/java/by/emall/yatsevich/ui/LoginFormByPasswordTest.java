@@ -1,160 +1,81 @@
 package by.emall.yatsevich.ui;
 
-import by.emall.yatsevich.ui.page.EmallMainPage;
 import org.junit.jupiter.api.Test;
 
-import static by.emall.yatsevich.ui.constants.ErrorMessageConstants.*;
+import static by.emall.yatsevich.components.utils.constants.ErrorMessageConstants.*;
 import static by.emall.yatsevich.components.utils.generators.PasswordGenerator.generatePassword;
-import static by.emall.yatsevich.components.utils.generators.PhoneNumbersGenerator.*;
+import static by.emall.yatsevich.ui.steps.LoginFormByPasswordSteps.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginFormByPasswordTest extends BaseTest{
+public class LoginFormByPasswordTest extends BaseTest {
 
     @Test
     public void testEmptyAllFields() {
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .clickLoginButton()
-                .getErrorMessage();
+        actual = goEmptyAllFields();
 
-        assertEquals(ERROR_MESSAGE_EMPTY_ALL_FIELDS_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_EMPTY_ALL_FIELDS_TEXT, actual);
     }
 
     @Test
-    public void testValidPhoneNumber_EmptyPassword(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getValidNumberWithOperatorCode())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testValidPhoneNumber_EmptyPassword() {
+        actual = goValidPhoneNumber_EmptyPassword();
 
-        assertEquals(ERROR_MESSAGE_VALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_VALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_EmptyPassword_ValidOperatorsCode_InvalidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberValidOperatorCodeInvalidNumber())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_EmptyPassword_ValidOperatorsCode_InvalidPhone() {
+        actual = goInvalidPhoneNumber_EmptyPassword_ValidOperatorsCode_InvalidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_ValidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeValidNumber())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_ValidPhone() {
+        actual = goInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_ValidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_InvalidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeInvalidNumber())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_InvalidPhone() {
+        actual = goInvalidPhoneNumber_EmptyPassword_InvalidOperatorsCode_InvalidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_EMPTY_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testEmptyPhonePhoneNumber_FilledPassword(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .clickSeePasswordButton()
-                .enterPassword(generatePassword())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testEmptyPhonePhoneNumber_FilledPassword() {
+        actual = goEmptyPhonePhoneNumber_FilledPassword();
 
-        assertEquals(ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_EMPTY_PHONE_NUM_FIELD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_FilledPassword_ValidOperatorsCode_InvalidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberValidOperatorCodeInvalidNumber())
-                .clickSeePasswordButton()
-                .enterPassword(generatePassword())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_FilledPassword_ValidOperatorsCode_InvalidPhone() {
+        actual = goInvalidPhoneNumber_FilledPassword_ValidOperatorsCode_InvalidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_ValidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeValidNumber())
-                .clickSeePasswordButton()
-                .enterPassword(generatePassword())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_ValidPhone() {
+        actual = goInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_ValidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_InvalidPhone(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getIncorrectNumberInvalidOperatorCodeInvalidNumber())
-                .clickSeePasswordButton()
-                .enterPassword(generatePassword())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_InvalidPhone() {
+        actual = goInvalidPhoneNumber_FilledPassword_InvalidOperatorsCode_InvalidPhone();
 
-        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_INVALID_PHONE_NUM_VALID_PASSWORD_TEXT, actual);
     }
 
     @Test
-    public void testValidPhoneNumber_FilledPassword(){
-        actualErrorMessage = new EmallMainPage()
-                .openPage()
-                .clickAcceptCookiesButton()
-                .clickLoginFormButton()
-                .clickEnterByPasswordButton()
-                .enterPhoneNumber(getValidNumberWithOperatorCode())
-                .clickSeePasswordButton()
-                .enterPassword(generatePassword())
-                .clickLoginButton()
-                .getErrorMessage();
+    public void testValidPhoneNumber_FilledPassword() {
+        actual = goValidPhoneNumber_FilledPassword();
 
-        assertEquals(ERROR_MESSAGE_BAD_DATA_TEXT, actualErrorMessage);
+        assertEquals(ERROR_MESSAGE_BAD_DATA_TEXT, actual);
     }
 }

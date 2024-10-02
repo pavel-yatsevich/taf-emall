@@ -26,7 +26,7 @@ public class ChromeDriverSingleton {
         driver = null;
     }
 
-    public static void sendKeysToElementWithWaiter(WebElement webElement, String keys) {
+    public static void sendKeysToWebElementWithWaiter(WebElement webElement, String keys) {
         waitWebElementToBeSent(driver).until(
                 d -> {
                     webElement.sendKeys(keys);
@@ -35,7 +35,7 @@ public class ChromeDriverSingleton {
     }
 
     public static void clickToWebElementWithWaiter(WebElement element) {
-        waitWebElementToBeClick(driver).until(
+        waitForWebElementToClick(driver).until(
                 d -> {
                     element.click();
                     return true;
